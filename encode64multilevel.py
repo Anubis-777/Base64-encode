@@ -1,7 +1,6 @@
 import base64
 import sys
 
-# التحقق من وجود الوسائط المطلوبة
 if len(sys.argv) < 3:
     print("Usage: python script_name.py <string_to_encode> <number_of_levels>")
     sys.exit(1)
@@ -16,14 +15,13 @@ def getUrlSafeBase64(strToBeEncoded):
     return base64.urlsafe_b64encode(strToBeEncoded.encode("ascii")).decode("ascii")
 
 def getCustomBase64(strToBeEncoded):
-    # Custom encoding as an example (here we use standard base64 and replace some characters)
     encoded = base64.b64encode(strToBeEncoded.encode("ascii")).decode("ascii")
     return encoded.replace('+', '-').replace('/', '_')
 
 def getWorstCaseBothSides(strToBeEncoded, index, encoding_type="standard"):
     beginAt = 0
     if index == 1:
-        beginAt = 2             # the third char
+        beginAt = 2            
         strToBeEncoded = "x" + strToBeEncoded
     elif index == 2:
         beginAt = 3
@@ -60,7 +58,7 @@ def getWorstCases(strToBeEncoded, noOfLevels):
 
     for encoding_type in encoding_types:
         x = []
-        arrOfStrToBeEncoded = [strToBeEncoded]  # إعادة تعيين المدخلات لكل نوع ترميز
+        arrOfStrToBeEncoded = [strToBeEncoded]  
         for s in range(noOfLevels):
             x = getWorstCaseAtLevel(arrOfStrToBeEncoded, encoding_type)
             arrOfEncodedLevels.append(f"{encoding_type} Level {s+1}: " + joinArrToString(x))
