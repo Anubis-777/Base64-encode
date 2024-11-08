@@ -9,7 +9,7 @@ Base64 encoding takes 24 bits (or 3 bytes) and turns them into four 6-bit Base64
 ## How to Use It
 
 ```sh
-python script_name.py [text_to_encode] [number_of_levels]
+python encode64multilevel.py [text_to_encode] [number_of_levels]
 ```
 
 Replace `[text_to_encode]` with the text you want to encode, and `[number_of_levels]` with the number of times you want to encode it.
@@ -19,7 +19,7 @@ The script will show different versions of the encoded text, depending on the ty
 ## Example
 
 ```sh
-python script_name.py "HelloWorld" 2
+python encode64multilevel.py "HelloWorld" 2
 ```
 
 This command will encode the text "HelloWorld" two times using each type of Base64 encoding: standard, URL-safe, and custom.
@@ -55,7 +55,7 @@ custom Level 1: ...
 
 If you want to encode the text "example" using two levels of encoding, you would use the following command:
 ```sh
-python script_name.py example 2
+python encode64multilevel.py example 2
 ```
 
 The script will encode the text and print the result for each type of Base64 encoding.
